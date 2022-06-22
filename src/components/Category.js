@@ -2,14 +2,13 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLOR, FONT_SIZE} from '../constants';
 
-const Category = ({title, imageCategory}) => {
+const Category = ({title, imageCategory,onPress}) => {
   return (
     <TouchableOpacity
+    onPress={onPress}
       style={{
-        flex:1,
         alignItems: 'center',
-        borderRadius: 50,
-        marginHorizontal: 5,
+        marginVertical: 10,
       }}>
       <Image style={{height: 50, width: 50}} source={imageCategory} />
       <View style={{width: 80}}>

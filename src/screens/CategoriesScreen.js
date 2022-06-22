@@ -1,10 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {StyleSheet, Text, View,FlatList,Image} from 'react-native';
+import React from 'react';
+import {useSelector} from 'react-redux';
 
 const CategoriesScreen = () => {
+  const products = useSelector(state => state.products);
+
   return (
     <View>
-      <Text>CategoriesScreen</Text>
+      <FlatList
+        data={products.filterProduct}
+        renderItem={({item}) => {
+          return <View>
+            <Text>{item.name}</Text>
+            <Image/>
+          </View>;
+        }}
+      />
     </View>
   );
 };

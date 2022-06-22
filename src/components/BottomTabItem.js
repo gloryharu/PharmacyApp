@@ -1,16 +1,20 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import React from 'react';
-import {COLOR} from '../constants';
-const BottomTabItem = () => {
-    
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
+const BottomTabIcon = ({nameIcon, title, style, color, size, styleTitle}) => {
   return (
-    <View style={{alignItems: 'center'}}>
-      <Ionicons name="ios-home" size={20} color={COLOR.primary} />
-      <Text style={{color: COLOR.primary}}>Home</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={() => console.log({title})}>
+      <View>
+        <View style={style}>
+          <FontAwesome5 name={nameIcon} size={size} color={color} />
+        </View>
+        <Text style={styleTitle}>{title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
-export default BottomTabItem;
+export default BottomTabIcon;
 
 const styles = StyleSheet.create({});
