@@ -6,8 +6,8 @@ import RootNavigator from './src/navigator/RootNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 import {LogBox} from 'react-native';
 const App = () => {
-  LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
-  LogBox.ignoreAllLogs(); //Ignore all log notifications
+  // LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+  // LogBox.ignoreAllLogs(); //Ignore all log notifications
   return (
     <Provider store={store}>
       <NavigationContainer>

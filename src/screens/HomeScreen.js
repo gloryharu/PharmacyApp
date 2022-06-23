@@ -3,15 +3,13 @@ import {
   Text,
   View,
   TextInput,
-  Image,
-  ScrollView,
   TouchableOpacity,
   FlatList,
 } from 'react-native';
 import React from 'react';
+import {ScrollView} from 'react-native-virtualized-view';
 import {COLOR, FONT_SIZE} from '../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {IMAGES} from '../assets/images';
 import SliderBanner from '../components/SliderBanner';
 import Category from '../components/Category';
 import BottomTabIcon from '../components/BottomTabItem';
@@ -29,7 +27,7 @@ const HomeScreen = props => {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <ScrollView nestedScrollEnabled>
+      <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false}>
         <View
           style={{
             height: 50,
@@ -49,19 +47,7 @@ const HomeScreen = props => {
         </View>
 
         {/* Search Bar */}
-        <View
-          style={{
-            height: 40,
-            backgroundColor: COLOR.white,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginHorizontal: 10,
-            borderRadius: 20,
-            paddingHorizontal: 10,
-            position: 'relative',
-            marginVertical: 20,
-          }}>
+        <View style={styles.searchContainer}>
           <TextInput style={{flex: 1}} placeholder="Bạn muốn mua thuốc gì?" />
           <Ionicons name="ios-search" size={23} />
         </View>
@@ -75,22 +61,14 @@ const HomeScreen = props => {
           <SliderBanner />
 
           {/* Danh mục sản phẩm */}
-          <View
-            style={{
-              backgroundColor: COLOR.white,
-              height: 500,
-              borderTopLeftRadius: 20,
-              borderTopRightRadius: 20,
-              elevation: 5,
-              padding: 10,
-              paddingBottom: 30,
-            }}>
+          <View style={styles.categoriesContainer}>
             {/* Title danh mục sản phẩm */}
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
+                marginBottom: 10,
               }}>
               <Text style={{fontWeight: 'bold', fontSize: FONT_SIZE.medium}}>
                 Danh mục sản phẩm
@@ -108,10 +86,6 @@ const HomeScreen = props => {
 
             {/* List Categories */}
             <FlatList
-              contentContainerStyle={{
-                marginVertical: 15,
-                justifyContent: 'space-between',
-              }}
               data={CATEGORIES}
               numColumns={3}
               renderItem={({item, index}) => {
@@ -122,7 +96,10 @@ const HomeScreen = props => {
                       imageCategory={item.image}
                       onPress={() => {
                         dispatch(get_Product_FILTER(item.category));
-                        navigate('SubCategoriesScreen', {name: item.category, subCategories : item.sub_categories});
+                        navigate('SubCategoriesScreen', {
+                          name: item.category,
+                          subCategories: item.sub_categories,
+                        });
                       }}
                     />
                   </View>
@@ -205,5 +182,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLOR.primary,
+  },
+  searchContainer: {
+    height: 40,
+    backgroundColor: COLOR.white,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginHorizontal: 10,
+    borderRadius: 20,
+    paddingHorizontal: 10,
+    position: 'relative',
+    marginVertical: 20,
+  },
+  categoriesContainer: {
+    backgroundColor: COLOR.white,
+    height: 500,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    elevation: 5,
+    padding: 10,
+    paddingBottom: 30,
   },
 });
