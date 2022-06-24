@@ -138,7 +138,7 @@ const HomeScreen = props => {
           size={20}
         />
 
-        <View style={{top: -15, alignItems: 'center'}}>
+        <View style={{top: -15}}>
           <BottomTabIcon
             style={{
               height: 50,

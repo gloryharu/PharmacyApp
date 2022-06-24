@@ -5,6 +5,7 @@ const initialState = {
   data: data,
   isLoading: null,
   filterProduct: [],
+  selectedProduct: {},
 };
 
 export const productSlice = createSlice({
@@ -20,14 +21,22 @@ export const productSlice = createSlice({
     get_Product_FILTER: (state, action) => {
       return {
         ...state,
-        filterProduct: data.filter(
+        filterProduct: [...data].filter(
           product => product.category === action.payload,
+        ),
+      };
+    },
+    get_Product_SELECTED: (state, action) => {
+      return {
+        ...state,
+        selectedProduct: [...state.filterProduct].find(
+          product => product.productID === action.payload,
         ),
       };
     },
   },
 });
 
-export const {get_Product, get_Product_ALL, get_Product_FILTER} =
+export const {get_Product, get_Product_ALL, get_Product_FILTER,get_Product_SELECTED} =
   productSlice.actions;
 export default productSlice.reducer;

@@ -3,7 +3,7 @@ export const COLOR = {
   secondary : '#EDF2F8',
   white: 'white',
   black: 'black',
-  gray : '#EEEEEE',
+  gray :  "#DFDFDE",
   btnColor: '#5DAC46',
   blackOpacity : "#000000aa"
 };

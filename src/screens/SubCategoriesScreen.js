@@ -1,10 +1,12 @@
-import {StyleSheet, Text, View, FlatList, Modal} from 'react-native';
+import {StyleSheet, Text, View, FlatList} from 'react-native';
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {COLOR, FONT_SIZE} from '../constants';
 import {SubCategoriesList} from '../components/SubCategoriesList';
 import PopupScreen from './PopupScreen';
 import {ProductContainer} from '../components/ProductContainer';
+import Modal from 'react-native-modal';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 const SubCategoriesScreen = props => {
   const products = useSelector(state => state.products);
@@ -51,11 +53,16 @@ const SubCategoriesScreen = props => {
           }}
           numColumns={3}
           data={products.filterProduct}
-          renderItem={({item}) => {
+          renderItem={({item, index}) => {
             return (
               <ProductContainer
                 item={item}
-                onPress={() => navigate('DetailsScreen', {name: item.category})}
+                onPress={() => {
+                  navigate('DetailsScreen', {
+                    name: item.category,
+                    productID: item.productID,
+                  });
+                }}
                 onOrder={() => {
                   setIsVisible(true);
                   setSelectedProduct(item);
@@ -66,12 +73,23 @@ const SubCategoriesScreen = props => {
         />
       </View>
 
-      <Modal animationType="fade" transparent visible={isVisible}>
-        <PopupScreen
-          selectedProduct={selectedProduct}
-          onClose={() => setIsVisible(false)}
-        />
-      </Modal>
+      <GestureHandlerRootView>
+        <Modal
+          style={{margin: 0}}
+          animationIn={'fadeIn'}
+          animationOut={'fadeOut'}
+          isVisible={isVisible}
+          coverScreen={true}
+          onSwipeComplete={e => {
+            setIsVisible(false);
+          }}
+          swipeDirection="down">
+          <PopupScreen
+            selectedProduct={selectedProduct}
+            onClose={() => setIsVisible(false)}
+          />
+        </Modal>
+      </GestureHandlerRootView>
     </View>
   );
 };
