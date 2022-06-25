@@ -84,7 +84,6 @@ const CategoriesScreen = props => {
           animationIn={'fadeIn'}
           animationOut={'fadeOut'}
           isVisible={isVisible}
-          coverScreen={true}
           onSwipeComplete={() => {
             setIsVisible(false);
           }}

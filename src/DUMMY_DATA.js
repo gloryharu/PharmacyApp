@@ -7,7 +7,7 @@ export const data = [
     name: 'Viên Uống Tăng Cường Tuần Hoàn Não Bamogin Thành Công 60 Viên',
     price: 149000,
     made_in: 'Việt Nam',
-    images: 'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2020/10/00020412-bamogin-thanh-cong-6x10-2084-5f92_large.JPG',
+    images: 'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2020/10/00020412-bamogin-thanh-cong-6x10-2084-5f92_large.JPG',
     desc: 'Bamogin giúp tăng cường tuần hoàn não, cải thiện trí nhớ, tăng khả năng tập trung, giảm tình trạng căng thẳng, lo lắng, suy nhược thần kinh.',
   },
   {
@@ -16,8 +16,8 @@ export const data = [
     name: 'Cốm Vi Sinh Lacto Biomin Gold Hd Pharma Hỗ Trợ Điều Trị Rối Loạn Tiêu Hóa, Tiêu Chảy 5G',
     price: 125000,
     made_in: 'Việt Nam',
-    images: 'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2021/04/00030511-lacto-biomin-gold-new-hdpharma-20-goi-2174-607c_large.jpg',
-    desc: 'Bamogin giúp tăng cường tuần hoàn não, cải thiện trí nhớ, tăng khả năng tập trung, giảm tình trạng căng thẳng, lo lắng, suy nhược thần kinh.',
+    images: 'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2021/04/00030511-lacto-biomin-gold-new-hdpharma-20-goi-2174-607c_large.jpg',
+    desc: 'Cốm vi sinh Lacto Biomin Gold giúp bổ sung vi khuẩn có ích, vitamin và lysin cho cơ thể, hỗ trợ tăng cường tiêu hóa. Giúp ăn ngon và nâng cao khả năng hấp thu dưỡng chất, nâng cao sức đề kháng. Hỗ trợ cải thiện hệ vi sinh đường ruột và giúp giảm nguy cơ rối loạn tiêu hóa do loạn khuẩn đường ruột.',
   },
   {
     productID: 3,
@@ -26,7 +26,7 @@ export const data = [
     price: 517000,
     made_in: 'Pháp',
     images: 'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2022/06/00021988-anica-phytextra-60v-7325-62ae_large.jpg',
-    desc: 'Bamogin giúp tăng cường tuần hoàn não, cải thiện trí nhớ, tăng khả năng tập trung, giảm tình trạng căng thẳng, lo lắng, suy nhược thần kinh.',
+    desc: 'Anica hỗ trợ phát triển chiều cao và sức khỏe tổng thể cho thanh thiếu niên, trẻ em đang phát triển và người có nhu cầu bổ sung canxi. Phòng ngừa tình trạng còi xương, loãng xương. Giảm triệu chứng viêm khớp, thoái hóa khớp.',
   },
   {
     productID: 4,
@@ -34,7 +34,7 @@ export const data = [
     name: 'Nước Rửa Tay Diệt Khuẩn Dạng Gel Natural Hand Sanitizer 250Ml',
     price: 49000,
     made_in: 'Việt Nam',
-    images: 'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2021/04/00030511-lacto-biomin-gold-new-hdpharma-20-goi-2174-607c_large.jpg',
+    images: 'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2022/06/00032957-dung-dich-rua-tay-kho-natural-hand-sanitizer-500ml-8726-62af_large.jpg',
     desc: 'Gel Rửa Tay Khô Natural Hand Sanitizer là sản phẩm rửa tay khô không cần rửa lại bằng nước, giúp loại bỏ hầu hết vi khuẩn mà vẫn giữ cho đôi tay bạn luôn mềm mại dễ chịu. Ngoài ra, sản phẩm với hương thơm trà xanh và sả chanh dễ chịu, giúp khử mùi cho đôi tay hiệu quả.',
   },
   {
@@ -43,7 +43,7 @@ export const data = [
     name: 'Gel Lô Hội La Beauty Giữ Ẩm, Mát Dịu Da 300Ml',
     price: 99000,
     made_in: 'Việt Nam',
-    images: 'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2021/04/00030511-lacto-biomin-gold-new-hdpharma-20-goi-2174-607c_large.jpg',
+    images: 'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2021/05/00030816-gel-lo-hoi-la-beauty-300ml-8537-60a7_large.JPG',
     desc: 'Gel Lô hội La Beauty chứa tinh chất Lô hội tự nhiên, nguyên chất và các dưỡng chất giữ ẩm an toàn, dịu nhẹ, giúp làm mát dịu da nhanh chóng, mang đến làn da tươi tắn và mềm mượt hơn.',
   },
   {
@@ -52,8 +52,8 @@ export const data = [
     name: 'Khẩu Trang Y Tế Safefit Màu Xanh 4 Lớp 50 Cái',
     price: 50000,
     made_in: 'Việt Nam',
-    images: 'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2021/04/00030511-lacto-biomin-gold-new-hdpharma-20-goi-2174-607c_large.jpg',
-    desc: ' Khẩu trang y tế Safefit là khẩu trang đạt chuẩn ISO 13485: 2026, với các lớp vải kháng khuẩn, giúp ngăn ngừa vi khuẩn và lọc bụi bẩn hiệu quả. ',
+    images: 'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2022/05/00500207-bcs-safefit-comfortable-s52-3-cai-nhieu-chat-boi-tron-8012-6287_large.jpg',
+    desc: 'Khẩu trang y tế Safefit là khẩu trang đạt chuẩn ISO 13485: 2026, với các lớp vải kháng khuẩn, giúp ngăn ngừa vi khuẩn và lọc bụi bẩn hiệu quả. ',
   },
   {
     productID: 7,
@@ -61,7 +61,7 @@ export const data = [
     name: 'Dầu Gội Hoa Bưởi La Beauty Giảm Gãy Rụng, Kích Thích Mọc Tóc 250Ml',
     price: 99000,
     made_in: 'Việt Nam',
-    images: 'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2021/04/00030511-lacto-biomin-gold-new-hdpharma-20-goi-2174-607c_large.jpg',
+    images: 'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2022/06/00030084-dau-goi-hoa-buoi-la-beauty-250ml-giam-gay-rung-kich-thich-moc-toc-5963-62ae_large.JPG',
     desc: 'Dầu gội hoa bưởi La Beauty giúp đáp ứng nhu cầu chăm sóc mái tóc hiệu quả từ tinh dầu vỏ bưởi và thảo dược, cho tóc và da đầu sạch gàu, thơm dịu nhẹ, đồng thời hạn chế rụng tóc, đem lại mái tóc dày và óng mượt. Sản phẩm là lựa chọn tuyệt vời cho da đầu, thúc đẩy sự phát triển tóc khỏe mạnh, và cũng có thể giúp làm giảm tình trạng da đầu ngứa.',
   },
   {
@@ -70,7 +70,7 @@ export const data = [
     name: 'Thuốc Calcid Soft Usa - Nic Pharma Bổ Sung Canxi Và Vitamin D (Hộp 10 Vỉ X 10 Viên)',
     price: 186000,
     made_in: 'Việt Nam',
-    images: 'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2021/04/00030511-lacto-biomin-gold-new-hdpharma-20-goi-2174-607c_large.jpg',
+    images: 'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(90):fill(white)/nhathuoclongchau.com/images/product/2022/06/00022043-calcid-soft-usa-nic-pharma-10x10-4283-62ad_large.jpg',
     desc: 'Calcid Soft Usa - Nic Pharma 10X10 cung cấp Calci và Vitamin D cho cơ thể trong các trường hợp trẻ còi xương, trẻ đang phát triển, loãng xương ở người già, co giật do giảm Calci huyết, phụ nữ mang thai và cho con bú.',
   },
 ];
@@ -83,22 +83,22 @@ export const CATEGORIES = [
       {
         name: 'Sức khỏe tim mạch',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(100):fill(white)/nhathuoclongchau.com/upload/images/filtercate/tim-mach-huyet-ap.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(100):fill(white)/nhathuoclongchau.com/upload/images/filtercate/tim-mach-huyet-ap.png',
       },
       {
         name: 'Hỗ trợ tiêu hóa',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(100):fill(white)/nhathuoclongchau.com/upload/images/filtercate/ho-tro-tieu-hoa.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(100):fill(white)/nhathuoclongchau.com/upload/images/filtercate/ho-tro-tieu-hoa.png',
       },
       {
         name: 'Thần kinh não',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(100):fill(white)/nhathuoclongchau.com/upload/images/filtercate/than-kinh-nao.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(100):fill(white)/nhathuoclongchau.com/upload/images/filtercate/than-kinh-nao.png',
       },
       {
         name: 'Thảo dược & thực phẩm tự nhiên',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/200x200/filters:quality(100):fill(white)/nhathuoclongchau.com/upload/images/filtercate/thao-duoc-thuc-pham-tu-nhien.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/filters:quality(100):fill(white)/nhathuoclongchau.com/upload/images/filtercate/thao-duoc-thuc-pham-tu-nhien.png',
       },
     ],
   },
@@ -109,27 +109,27 @@ export const CATEGORIES = [
       {
         name: 'Chăm sóc răng miệng',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/cham-soc-rang-mieng.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/cham-soc-rang-mieng.png',
       },
       {
         name: 'Vệ sinh cá nhân',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/ve-sinh-ca-nhan.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/ve-sinh-ca-nhan.png',
       },
       {
         name: 'Tinh dầu các loại',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/tinh-dau-cac-loai.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/tinh-dau-cac-loai.png',
       },
       {
         name: 'Thực phẩm đồ uống',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/thuc-pham-do-uong.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/thuc-pham-do-uong.png',
       },
       {
         name: 'Dụng cụ cạo râu',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/dung-cu-cao-rau.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/dung-cu-cao-rau.png',
       },
     ],
   },
@@ -140,22 +140,22 @@ export const CATEGORIES = [
       {
         name: 'Dụng cụ y tế',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/dung-cu-y-te.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/dung-cu-y-te.png',
       },
       {
         name: 'Khẩu trang',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/khau-trang.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/khau-trang.png',
       },
       {
         name: 'Dụng cụ theo dõi',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/dung-cu-theo-doi.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/dung-cu-theo-doi.png',
       },
       {
         name: 'Dụng cụ sơ cứu',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/dung-cu-so-cuu.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/dung-cu-so-cuu.png',
       },
     ],
   },
@@ -166,27 +166,27 @@ export const CATEGORIES = [
       {
         name: 'Chăm sóc cơ thể',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/cham-soc-co-the.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/cham-soc-co-the.png',
       },
       {
         name: 'Chăm sóc da mặt',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/cham-soc-da-mat.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/cham-soc-da-mat.png',
       },
       {
         name: 'Chăm sóc tóc',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/cham-soc-toc-chuyen-sau.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/cham-soc-toc-chuyen-sau.png',
       },
       {
         name: 'Các vấn đề về da',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/cham-soc-da-chuyen-sau.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/cham-soc-da-chuyen-sau.png',
       },
       {
         name: 'Mỹ phẩm trang điểm',
         image:
-          'https://images.fpt.shop/unsafe/fit-in/150x150/nhathuoclongchau.com/upload/images/filtercate/my-pham-trang-diem.png',
+          'https://images.fpt.shop/unsafe/fit-in/600x600/nhathuoclongchau.com/upload/images/filtercate/my-pham-trang-diem.png',
       },
     ],
   },

@@ -42,7 +42,7 @@ const HomeScreen = props => {
             </Text>
           </View>
           <View>
-            <Ionicons name="ios-cart" size={23} color={COLOR.white} />
+            <Ionicons onPress={()=>console.log("Cart")} name="ios-cart" size={23} color={COLOR.white} />
           </View>
         </View>
 

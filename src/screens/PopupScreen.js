@@ -33,7 +33,11 @@ const PopupScreen = ({selectedProduct, onClose}) => {
           <Text>Chọn số lượng</Text>
           {/* Button custom */}
           <View style={{width: 100, height: 30}}>
-            <QuantityButton />
+            <QuantityButton
+              quantity="1"
+              onDecrease={() => {}}
+              onIncrease={() => {}}
+            />
           </View>
         </View>
 
