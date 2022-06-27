@@ -1,14 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import { JumpingTransition } from 'react-native-reanimated';
 
-const RowContent = ({title, content}) => {
+const RowContent = ({title, content,stylesProp}) => {
   return (
-    <View style={{flexDirection: 'row', marginBottom: 10}}>
+    <View style={styles.container}>
       <View style={{flex: 1}}>
         <Text style={styles.title}>{title}:</Text>
       </View>
       <View style={{flex: 2}}>
-        <Text>{content}</Text>
+        <Text style={stylesProp}>{content}</Text>
       </View>
     </View>
   );
@@ -17,6 +18,10 @@ const RowContent = ({title, content}) => {
 export default RowContent;
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
   title: {
     fontWeight: 'bold',
   },

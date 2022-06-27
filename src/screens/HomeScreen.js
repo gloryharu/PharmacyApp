@@ -42,7 +42,12 @@ const HomeScreen = props => {
             </Text>
           </View>
           <View>
-            <Ionicons onPress={()=>console.log("Cart")} name="ios-cart" size={23} color={COLOR.white} />
+            <Ionicons
+              onPress={() => console.log('Cart')}
+              name="ios-cart"
+              size={23}
+              color={COLOR.white}
+            />
           </View>
         </View>
 
@@ -51,6 +56,7 @@ const HomeScreen = props => {
           <TextInput style={{flex: 1}} placeholder="Bạn muốn mua thuốc gì?" />
           <Ionicons name="ios-search" size={23} />
         </View>
+
         {/*Slide Banner quảng cáo*/}
         <View
           style={{
@@ -76,7 +82,7 @@ const HomeScreen = props => {
               <TouchableOpacity
                 onPress={() => {
                   dispatch(get_Product_ALL());
-                  navigate('CategoriesScreen', {name: 'Danh mục sản phẩm'});
+                  navigate('CategoriesScreen');
                 }}>
                 <Text style={{fontSize: FONT_SIZE.small, fontStyle: 'italic'}}>
                   Xem thêm
@@ -109,6 +115,8 @@ const HomeScreen = props => {
           </View>
         </View>
       </ScrollView>
+
+      
       {/* Bottom tab */}
       <View
         style={{
@@ -131,13 +139,16 @@ const HomeScreen = props => {
           color={COLOR.primary}
         />
 
+        {/* Nút điểm thưởng */}
         <BottomTabIcon
+          onPress={() => navigate('PointScreen')}
           style={{alignItems: 'center'}}
           nameIcon={'star'}
           title="Điểm thưởng"
           size={20}
         />
 
+        {/* Nút hỗ trợ */}
         <View style={{top: -15}}>
           <BottomTabIcon
             style={{
@@ -155,6 +166,7 @@ const HomeScreen = props => {
             title="Hỗ trợ"
             color={COLOR.white}
             size={25}
+            onPress={() => navigate('SupportScreen')}
           />
         </View>
 
@@ -163,6 +175,7 @@ const HomeScreen = props => {
           nameIcon={'shopping-bag'}
           title="Giỏ hàng"
           size={20}
+          onPress={()=> navigate('CartScreen')}
         />
 
         <BottomTabIcon
@@ -170,6 +183,7 @@ const HomeScreen = props => {
           nameIcon={'user-circle'}
           title="Tài khoản"
           size={20}
+          onPress={() => navigate('ProfileScreen')}
         />
       </View>
     </View>

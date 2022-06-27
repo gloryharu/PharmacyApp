@@ -1,10 +1,13 @@
 import {StyleSheet, Text, View, FlatList} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {CATEGORIES} from '../DUMMY_DATA';
 import Category from '../components/Category';
 import {COLOR, FONT_SIZE} from '../constants';
-import {get_Product_FILTER} from '../redux_toolkit/slices/productSlice';
+import {
+  get_Product_FILTER,
+  get_Product_ALL,
+} from '../redux_toolkit/slices/productSlice';
 import {ProductContainer} from '../components/ProductContainer';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import Modal from 'react-native-modal';
@@ -18,6 +21,11 @@ const CategoriesScreen = props => {
   const [selectedProduct, setSelectedProduct] = useState({});
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    get_Product_ALL();
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
       <View>
@@ -63,7 +71,8 @@ const CategoriesScreen = props => {
                 onPress={() => {
                   navigate('DetailsScreen', {
                     name: item.category,
-                    productID: item.productID,
+                    // productID: item.productID,
+                    item: item,
                   });
                 }}
                 item={item}

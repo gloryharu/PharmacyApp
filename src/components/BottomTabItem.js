@@ -2,9 +2,9 @@ import {StyleSheet, Text, View, TouchableWithoutFeedback} from 'react-native';
 import React from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const BottomTabIcon = ({nameIcon, title, style, color, size, styleTitle}) => {
+const BottomTabIcon = ({nameIcon, title, style, color, size, styleTitle,onPress}) => {
   return (
-    <TouchableWithoutFeedback onPress={() => console.log({title})}>
+    <TouchableWithoutFeedback onPress={onPress}>
       <View style={{alignItems:'center'}}>
         <View style={style}>
           <FontAwesome5 name={nameIcon} size={size} color={color} />

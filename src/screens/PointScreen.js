@@ -2,11 +2,11 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import React from 'react';
 import {COLOR, FONT_SIZE} from '../constants';
 
-const ProfileScreen = () => {
+const PointScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={{fontWeight: 'bold', fontSize: FONT_SIZE.large}}>
-        SẼ LÀM SAU
+        THIẾU NHÂN LỰC
       </Text>
       <Image
         style={{height: '50%', width: '100%'}}
@@ -19,7 +19,7 @@ const ProfileScreen = () => {
   );
 };
 
-export default ProfileScreen;
+export default PointScreen;
 
 const styles = StyleSheet.create({
   container: {

@@ -60,7 +60,8 @@ const SubCategoriesScreen = props => {
                 onPress={() => {
                   navigate('DetailsScreen', {
                     name: item.category,
-                    productID: item.productID,
+                    // productID: item.productID,
+                    item : item
                   });
                 }}
                 onOrder={() => {
