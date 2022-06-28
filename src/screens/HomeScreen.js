@@ -14,7 +14,7 @@ import SliderBanner from '../components/SliderBanner';
 import Category from '../components/Category';
 import BottomTabIcon from '../components/BottomTabItem';
 import {CATEGORIES} from '../DUMMY_DATA';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {
   get_Product_FILTER,
   get_Product_ALL,
@@ -22,7 +22,7 @@ import {
 
 const HomeScreen = props => {
   const {navigation} = props;
-  const {navigate, goBack} = navigation;
+  const {navigate} = navigation;
   const dispatch = useDispatch();
   return (
     <View style={styles.container}>
@@ -43,7 +43,7 @@ const HomeScreen = props => {
           </View>
           <View>
             <Ionicons
-              onPress={() => console.log('Cart')}
+              onPress={() => navigate('CartScreen')}
               name="ios-cart"
               size={23}
               color={COLOR.white}
@@ -81,7 +81,7 @@ const HomeScreen = props => {
               </Text>
               <TouchableOpacity
                 onPress={() => {
-                  dispatch(get_Product_ALL());
+                  // dispatch(get_Product_ALL());
                   navigate('CategoriesScreen');
                 }}>
                 <Text style={{fontSize: FONT_SIZE.small, fontStyle: 'italic'}}>
@@ -116,7 +116,6 @@ const HomeScreen = props => {
         </View>
       </ScrollView>
 
-      
       {/* Bottom tab */}
       <View
         style={{
@@ -175,7 +174,7 @@ const HomeScreen = props => {
           nameIcon={'shopping-bag'}
           title="Giỏ hàng"
           size={20}
-          onPress={()=> navigate('CartScreen')}
+          onPress={() => navigate('CartScreen')}
         />
 
         <BottomTabIcon

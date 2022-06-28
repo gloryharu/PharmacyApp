@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, FlatList} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {COLOR, FONT_SIZE} from '../constants';
 import {SubCategoriesList} from '../components/SubCategoriesList';
@@ -7,6 +7,7 @@ import PopupScreen from './PopupScreen';
 import {ProductContainer} from '../components/ProductContainer';
 import Modal from 'react-native-modal';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {get_Product_ID} from '../redux_toolkit/slices/productSlice';
 
 const SubCategoriesScreen = props => {
   const products = useSelector(state => state.products);
@@ -15,6 +16,11 @@ const SubCategoriesScreen = props => {
   const subCategories = route.params.subCategories;
   const [isVisible, setIsVisible] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState({});
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(get_Product_ID(selectedProduct.productID));
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -61,8 +67,9 @@ const SubCategoriesScreen = props => {
                   navigate('DetailsScreen', {
                     name: item.category,
                     // productID: item.productID,
-                    item : item
+                    // item: item,
                   });
+                  dispatch(get_Product_ID(item.productID));
                 }}
                 onOrder={() => {
                   setIsVisible(true);

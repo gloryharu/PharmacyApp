@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import Collapsible from 'react-native-collapsible';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { COLOR } from '../constants';
 
 const Question = ({item}) => {
   const [isCollapse, setIsCollapse] = useState(true);
@@ -37,5 +38,10 @@ const Question = ({item}) => {
 export default Question;
 
 const styles = StyleSheet.create({
-
+  lineStyle: {
+    width: '100%',
+    borderTopWidth: 1,
+    borderTopColor: COLOR.gray,
+    alignItems: 'center',
+  },
 });

@@ -6,6 +6,7 @@ const initialState = {
   isLoading: null,
   filterProduct: [],
   selectedProduct: {},
+  productID: null,
 };
 
 export const productSlice = createSlice({
@@ -26,14 +27,20 @@ export const productSlice = createSlice({
         ),
       };
     },
-    // get_Product_SELECTED: (state, action) => {
-    //   return {
-    //     ...state,
-    //     selectedProduct: [...state.filterProduct].find(
-    //       product => product.productID === action.payload,
-    //     ),
-    //   };
-    // },
+    get_Product_SELECTED: (state, action) => {
+      return {
+        ...state,
+        selectedProduct: [...state.filterProduct].find(
+          product => product.productID === action.payload,
+        ),
+      };
+    },
+    clear_Product_SELECTED: state => {
+      return {...state, selectedProduct: {}};
+    },
+    get_Product_ID: (state, action) => {
+      return {...state, productID: action.payload};
+    },
   },
 });
 
@@ -41,6 +48,8 @@ export const {
   get_Product,
   get_Product_ALL,
   get_Product_FILTER,
-  // get_Product_SELECTED
+  get_Product_SELECTED,
+  clear_Product_SELECTED,
+  get_Product_ID,
 } = productSlice.actions;
 export default productSlice.reducer;

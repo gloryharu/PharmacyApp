@@ -16,14 +16,14 @@ const QuantityButton = props => {
           },
         ]}
         onPress={onDecrease}>
-        <Text style={{fontSize: FONT_SIZE.large}}>-</Text>
+        <Text style={styles.txtStyle}>-</Text>
       </TouchableOpacity>
       <View
         style={[
           styles.btnContainer,
           {borderLeftWidth: 0, borderRightWidth: 0},
         ]}>
-        <Text style={{fontSize: FONT_SIZE.medium}}>{quantity}</Text>
+        <Text style={styles.txtStyle}>{quantity}</Text>
       </View>
       <TouchableOpacity
         activeOpacity={0.5}
@@ -32,7 +32,7 @@ const QuantityButton = props => {
           {borderTopRightRadius: 20, borderBottomRightRadius: 20},
         ]}
         onPress={onIncrease}>
-        <Text style={{fontSize: FONT_SIZE.medium}}>+</Text>
+        <Text style={styles.txtStyle}>+</Text>
       </TouchableOpacity>
     </View>
   );
@@ -51,5 +51,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: COLOR.gray,
+  },
+  txtStyle: {
+    fontSize: FONT_SIZE.small,
+    fontWeight: 'bold',
   },
 });

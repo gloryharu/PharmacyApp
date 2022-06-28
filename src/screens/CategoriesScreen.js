@@ -7,6 +7,7 @@ import {COLOR, FONT_SIZE} from '../constants';
 import {
   get_Product_FILTER,
   get_Product_ALL,
+  get_Product_ID,
 } from '../redux_toolkit/slices/productSlice';
 import {ProductContainer} from '../components/ProductContainer';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -23,8 +24,8 @@ const CategoriesScreen = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    get_Product_ALL();
-  }, [navigation]);
+    dispatch(get_Product_ALL());
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -69,11 +70,8 @@ const CategoriesScreen = props => {
             return (
               <ProductContainer
                 onPress={() => {
-                  navigate('DetailsScreen', {
-                    name: item.category,
-                    // productID: item.productID,
-                    item: item,
-                  });
+                  navigate('DetailsScreen',{name: item.category});
+                  dispatch(get_Product_ID(item.productID));
                 }}
                 item={item}
                 onOrder={() => {
