@@ -14,7 +14,7 @@ import SliderBanner from '../components/SliderBanner';
 import Category from '../components/Category';
 import BottomTabIcon from '../components/BottomTabItem';
 import {CATEGORIES} from '../DUMMY_DATA';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   get_Product_FILTER,
   get_Product_ALL,
@@ -34,7 +34,8 @@ const HomeScreen = props => {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            paddingHorizontal: 10,
+            paddingHorizontal: 15,
+            paddingTop: 10,
           }}>
           <View>
             <Text style={{color: COLOR.white, fontWeight: 'bold'}}>
@@ -43,8 +44,8 @@ const HomeScreen = props => {
           </View>
           <View>
             <Ionicons
-              onPress={() => navigate('CartScreen')}
-              name="ios-cart"
+              onPress={() => console.log('notification')}
+              name="ios-notifications"
               size={23}
               color={COLOR.white}
             />
@@ -81,7 +82,6 @@ const HomeScreen = props => {
               </Text>
               <TouchableOpacity
                 onPress={() => {
-                  // dispatch(get_Product_ALL());
                   navigate('CategoriesScreen');
                 }}>
                 <Text style={{fontSize: FONT_SIZE.small, fontStyle: 'italic'}}>

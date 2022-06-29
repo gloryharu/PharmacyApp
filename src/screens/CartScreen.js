@@ -9,11 +9,11 @@ import {
 } from 'react-native';
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {COLOR, FONT_SIZE} from '../constants';
+import {COLOR} from '../constants';
 import {
   get_Product_ALL,
   clear_Product_SELECTED,
-  get_Product_SELECTED
+  get_Product_SELECTED,
 } from '../redux_toolkit/slices/productSlice';
 import {
   removeCart,
@@ -25,15 +25,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Input from '../components/Input';
 import RowContent from '../components/RowContent';
 import {ScrollView} from 'react-native-virtualized-view';
-import QuantityButton from '../components/QuantityButton';
+import CartItem from '../components/CartItem';
 
 const CartScreen = props => {
   const {navigation} = props;
-  const {navigate, replace} = navigation;
+  const {replace} = navigation;
   const cart = useSelector(state => state.cart);
-  const productID = useSelector(state => state.products.data);
+  const totalPrice = cart.totalPrice;
   const cartItems = cart.cartItems;
   const dispatch = useDispatch();
+
+  // console.log(totalPrice)
 
   return (
     <View style={{flex: 1}}>
@@ -83,7 +85,7 @@ const CartScreen = props => {
                 borderColor: COLOR.gray,
               }}>
               <Button
-                title="Clear"
+                title="Xóa giỏ hàng"
                 onPress={() => {
                   dispatch(delete_all_Cart());
                 }}
@@ -92,35 +94,11 @@ const CartScreen = props => {
                 data={cartItems}
                 renderItem={({item}) => {
                   return (
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        padding: 10,
-                        marginVertical: 5,
-                      }}>
-                      <Image
-                        style={{height: 50, width: 50}}
-                        source={{uri: item?.images}}
-                      />
-                      <View style={{flex: 1, marginHorizontal: 10}}>
-                        <Text
-                          style={{
-                            fontWeight: 'bold',
-                            fontSize: FONT_SIZE.small,
-                          }}>
-                          {item?.name}
-                        </Text>
-                        <Text>{item?.price}đ</Text>
-                      </View>
-                      <View
-                        style={{width: 80, height: 25, alignSelf: 'center'}}>
-                        <QuantityButton
-                          quantity={item?.qty}
-                          onDecrease={() => dispatch(removeCart(item))}
-                          onIncrease={() => dispatch(addCart(item))}
-                        />
-                      </View>
-                    </View>
+                    <CartItem
+                      item={item}
+                      addQty={() => dispatch(addCart(item))}
+                      removeQty={() => dispatch(removeCart(item))}
+                    />
                   );
                 }}
               />
@@ -143,23 +121,23 @@ const CartScreen = props => {
             <RowContent
               stylesProp={{textAlign: 'right'}}
               title="Tổng tiền"
-              content="49000đ"
+              content={`${totalPrice}đ`}
             />
             <RowContent
               stylesProp={{textAlign: 'right'}}
               title="Phí vận chuyển"
-              content="Miễn phí"
+              content={'Miễn phí'}
             />
             <RowContent
               stylesProp={{textAlign: 'right', fontWeight: 'bold'}}
               title="Tổng thanh toán"
-              content="49000đ"
+              content={`${totalPrice}đ`}
             />
 
             <TouchableOpacity
               activeOpacity={0.8}
               style={{
-                backgroundColor: 'gray',
+                backgroundColor: COLOR.primary,
                 width: '100%',
                 justifyContent: 'center',
                 alignItems: 'center',

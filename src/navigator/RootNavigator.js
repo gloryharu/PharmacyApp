@@ -11,13 +11,16 @@ import {
   PointScreen,
   SupportScreen,
 } from '../screens';
-import {FONT_SIZE} from '../constants';
+import {COLOR, FONT_SIZE} from '../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
+
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
-  const {goBack} = useNavigation();
+  const {goBack, navigate} = useNavigation();
+  const countItem = useSelector(state => state.cart.cartItems.length);
   return (
     <Stack.Navigator
       initialRouteName="HomeScreen"
@@ -97,6 +100,35 @@ const RootNavigator = () => {
       <Stack.Screen
         options={({route}) => ({
           headerTitle: route.params.name,
+          headerRight: () => (
+            <View>
+              <Ionicons
+                onPress={() => {
+                  navigate('CartScreen');
+                }}
+                name="ios-cart"
+                size={25}
+              />
+              {countItem > 0 && (
+                <View
+                  style={{
+                    position: 'absolute',
+                    left: 15,
+                    top: -10,
+                    backgroundColor: 'red',
+                    borderRadius: 10,
+                    height: 18,
+                    width: 18,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text style={{color: COLOR.white, fontSize: FONT_SIZE.small}}>
+                    {countItem}
+                  </Text>
+                </View>
+              )}
+            </View>
+          ),
         })}
         name="DetailsScreen"
         component={DetailsScreen}

@@ -3,7 +3,7 @@ import React from 'react';
 import {COLOR, FONT_SIZE} from '../constants';
 
 const QuantityButton = props => {
-  const {onDecrease, onIncrease, quantity} = props;
+  const {addQty, removeQty, quantity} = props;
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -15,7 +15,7 @@ const QuantityButton = props => {
             borderBottomLeftRadius: 20,
           },
         ]}
-        onPress={onDecrease}>
+        onPress={removeQty}>
         <Text style={styles.txtStyle}>-</Text>
       </TouchableOpacity>
       <View
@@ -31,7 +31,7 @@ const QuantityButton = props => {
           styles.btnContainer,
           {borderTopRightRadius: 20, borderBottomRightRadius: 20},
         ]}
-        onPress={onIncrease}>
+        onPress={addQty}>
         <Text style={styles.txtStyle}>+</Text>
       </TouchableOpacity>
     </View>

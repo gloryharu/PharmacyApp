@@ -5,7 +5,7 @@ const initialState = {
   data: data,
   isLoading: null,
   filterProduct: [],
-  selectedProduct: {},
+  // selectedProduct: {},
   productID: null,
 };
 
@@ -36,7 +36,7 @@ export const productSlice = createSlice({
       };
     },
     clear_Product_SELECTED: state => {
-      return {...state, selectedProduct: {}};
+      return {...state, selectedProduct : {}};
     },
     get_Product_ID: (state, action) => {
       return {...state, productID: action.payload};
