@@ -1,19 +1,43 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, Linking} from 'react-native';
 import React from 'react';
-import {COLOR, FONT_SIZE} from '../constants';
+import RowContentProfile from '../components/RowContentProfile';
+import {COLOR} from '../constants';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Foundation from 'react-native-vector-icons/Foundation';
 
-const ProfileScreen = () => {
+const ProfileScreen = props => {
+  const {navigation} = props;
+  const {navigate} = navigation;
   return (
     <View style={styles.container}>
-      <Text style={{fontWeight: 'bold', fontSize: FONT_SIZE.large}}>
-        SẼ LÀM SAU
-      </Text>
-      <Image
-        style={{height: '50%', width: '100%'}}
-        resizeMode="contain"
-        source={{
-          uri: 'https://cdn.dribbble.com/users/1286822/screenshots/4318950/media/e9d6d00b4ab155085ce7d1d4a7bd6233.png?compress=1&resize=400x300',
-        }}
+      <View style={styles.imageContainer}>
+        <Text>Avatar</Text>
+      </View>
+      <RowContentProfile
+        icon={<Ionicons name="ios-person" size={23} color="gray" />}
+        title="Thông tin cá nhân"
+      />
+      <RowContentProfile
+        icon={<MaterialIcons name="history" size={23} color="gray" />}
+        title="Lịch sử mua hàng"
+        onPress={() => navigate('HistoryScreen')}
+      />
+      <RowContentProfile
+        icon={<Ionicons name="ios-document-text" size={23} color="gray" />}
+        title="Quy chế hoạt động"
+        onPress={() => Linking.openURL('https://nhathuoclongchau.com/tos')}
+      />
+      <RowContentProfile
+        icon={<Foundation name="lightbulb" size={23} color="gray" />}
+        title="Giới thiệu"
+        onPress={() =>
+          Linking.openURL('https://nhathuoclongchau.com/gioi-thieu')
+        }
+      />
+      <RowContentProfile
+        icon={<MaterialIcons name="logout" size={23} color="gray" />}
+        title="Đăng xuất"
       />
     </View>
   );
@@ -24,8 +48,17 @@ export default ProfileScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: COLOR.white,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: COLOR.white,
+  },
+  imageContainer: {
+    height: 100,
+    width: 100,
+    borderRadius: 25,
+    backgroundColor: COLOR.gray,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 50,
   },
 });

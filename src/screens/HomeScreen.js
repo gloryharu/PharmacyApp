@@ -2,28 +2,28 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput,
   TouchableOpacity,
   FlatList,
+  Pressable,
 } from 'react-native';
 import React from 'react';
-import {ScrollView} from 'react-native-virtualized-view';
 import {COLOR, FONT_SIZE} from '../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SliderBanner from '../components/SliderBanner';
 import Category from '../components/Category';
 import BottomTabIcon from '../components/BottomTabItem';
 import {CATEGORIES} from '../DUMMY_DATA';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {
   get_Product_FILTER,
-  get_Product_ALL,
 } from '../redux_toolkit/slices/productSlice';
+import { ScrollView } from 'react-native-virtualized-view';
 
 const HomeScreen = props => {
   const {navigation} = props;
   const {navigate} = navigation;
   const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -52,12 +52,13 @@ const HomeScreen = props => {
           </View>
         </View>
 
-        {/* Search Bar */}
-        <View style={styles.searchContainer}>
-          <TextInput style={{flex: 1}} placeholder="Bạn muốn mua thuốc gì?" />
-          <Ionicons name="ios-search" size={23} />
-        </View>
-
+        {/* Search Bar View */}
+        <Pressable onPress={() => navigate('SearchScreen')}>
+          <View style={styles.searchView}>
+            <Text style={{marginLeft: 10}}>Bạn muốn mua thuốc gì?</Text>
+            <Ionicons name="ios-search" size={23} />
+          </View>
+        </Pressable>
         {/*Slide Banner quảng cáo*/}
         <View
           style={{
@@ -118,18 +119,7 @@ const HomeScreen = props => {
 
       {/* Bottom tab */}
       <View
-        style={{
-          height: 50,
-          width: '100%',
-          backgroundColor: COLOR.white,
-          borderTopWidth: StyleSheet.hairlineWidth,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          paddingHorizontal: 15,
-          position: 'absolute',
-          bottom: 0,
-        }}>
+        style={styles.bottomTabContainer}>
         <BottomTabIcon
           style={{alignItems: 'center'}}
           nameIcon={'home'}
@@ -196,7 +186,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLOR.primary,
   },
-  searchContainer: {
+  searchView: {
+    flex: 9,
     height: 40,
     backgroundColor: COLOR.white,
     flexDirection: 'row',
@@ -217,4 +208,22 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingBottom: 30,
   },
+  txtCancel: {
+    flex: 1,
+    fontWeight: '800',
+    fontSize: FONT_SIZE.medium,
+    color: COLOR.primary,
+  },
+  bottomTabContainer:{
+    height: 50,
+    width: '100%',
+    backgroundColor: COLOR.white,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 15,
+    position: 'absolute',
+    bottom: 0,
+  }
 });

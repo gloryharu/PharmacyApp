@@ -5,6 +5,8 @@ const initialState = {
   price: 0,
   totalPrice: 0,
   quantity: 1,
+  infoBuyer: {},
+  history: [],
 };
 
 export const cartSlice = createSlice({
@@ -64,6 +66,12 @@ export const cartSlice = createSlice({
     delete_all_Cart: state => {
       return {...state, cartItems: [], totalPrice: 0, price: 0, quantity: 1};
     },
+    add_infoBuyer: (state, action) => {
+      return {...state, infoBuyer: action.payload};
+    },
+    add_History: (state, action) => {
+      state.history = [...state.history, action.payload];
+    },
   },
 });
 
@@ -73,5 +81,7 @@ export const {
   addCart,
   removeCart,
   delete_all_Cart,
+  add_infoBuyer,
+  add_History,
 } = cartSlice.actions;
 export default cartSlice.reducer;

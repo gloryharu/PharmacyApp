@@ -10,11 +10,13 @@ import {
   SubCategoriesScreen,
   PointScreen,
   SupportScreen,
+  HistoryScreen,
 } from '../screens';
 import {COLOR, FONT_SIZE} from '../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
+import SearchScreen from '../screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -109,6 +111,8 @@ const RootNavigator = () => {
                 name="ios-cart"
                 size={25}
               />
+
+              {/* Hiển thị số lượng (Badget icon) */}
               {countItem > 0 && (
                 <View
                   style={{
@@ -132,6 +136,22 @@ const RootNavigator = () => {
         })}
         name="DetailsScreen"
         component={DetailsScreen}
+      />
+
+      <Stack.Screen
+        options={() => ({
+          headerTitle: 'Tìm kiếm',
+        })}
+        name="SearchScreen"
+        component={SearchScreen}
+      />
+
+      <Stack.Screen
+        options={() => ({
+          headerTitle: 'Lịch sử mua hàng',
+        })}
+        name="HistoryScreen"
+        component={HistoryScreen}
       />
     </Stack.Navigator>
   );

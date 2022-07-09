@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Dimensions, Text, Image} from 'react-native';
+import {View, Dimensions, Image} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import Carousel from 'react-native-reanimated-carousel';
 import {IMAGES} from '../assets/images';
 
 const SCREEN_WIDTH = Dimensions.get('screen').width;
+
 const bannerArray = [
   IMAGES.banners.banner1,
   IMAGES.banners.banner2,
@@ -21,17 +22,17 @@ function SliderBanner() {
     <GestureHandlerRootView>
       <View style={{marginVertical: 15}}>
         <Carousel
-          height={SCREEN_WIDTH / 2.5}
+          data={bannerArray}
+          height={SCREEN_WIDTH / 2}
           width={SCREEN_WIDTH}
           autoPlay={true}
-          data={bannerArray}
           autoPlayInterval={2000}
           renderItem={({item}) => (
             <View style={{flex: 1, alignItems: 'center'}}>
               <Image
                 resizeMode="stretch"
                 style={{
-                  height: SCREEN_WIDTH / 2.5,
+                  height: SCREEN_WIDTH / 2,
                   width: SCREEN_WIDTH * 0.93,
                   borderRadius: 20,
                 }}

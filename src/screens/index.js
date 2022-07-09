@@ -7,6 +7,7 @@ import SubCategoriesScreen from './SubCategoriesScreen';
 import PopupScreen from './PopupScreen';
 import PointScreen from './PointScreen';
 import SupportScreen from './SupportScreen';
+import HistoryScreen from './HistoryScreen';
 
 export {
   HomeScreen,
@@ -18,4 +19,5 @@ export {
   PopupScreen,
   PointScreen,
   SupportScreen,
+  HistoryScreen,
 };

@@ -1,6 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import { JumpingTransition } from 'react-native-reanimated';
 
 const RowContent = ({title, content,stylesProp}) => {
   return (

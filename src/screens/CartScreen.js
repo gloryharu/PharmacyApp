@@ -4,27 +4,29 @@ import {
   View,
   TouchableOpacity,
   FlatList,
-  Image,
   Button,
+  Alert,
+  ScrollView,
+  Keyboard,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {COLOR} from '../constants';
 import {
   get_Product_ALL,
   clear_Product_SELECTED,
-  get_Product_SELECTED,
 } from '../redux_toolkit/slices/productSlice';
 import {
   removeCart,
   addCart,
   delete_all_Cart,
+  add_infoBuyer,
+  add_History,
 } from '../redux_toolkit/slices/cartSlice';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Input from '../components/Input';
 import RowContent from '../components/RowContent';
-import {ScrollView} from 'react-native-virtualized-view';
 import CartItem from '../components/CartItem';
 
 const CartScreen = props => {
@@ -35,7 +37,38 @@ const CartScreen = props => {
   const cartItems = cart.cartItems;
   const dispatch = useDispatch();
 
-  // console.log(totalPrice)
+  const [nameBuyer, setNameBuyer] = useState('');
+  const [addressBuyer, setAddressBuyer] = useState('');
+  const [phoneBuyer, setPhoneBuyer] = useState('');
+
+  const handleThanhToan = () => {
+    if (nameBuyer === '' || addressBuyer === '' || phoneBuyer === '') {
+      return Alert.alert('Lỗi', 'Vui lòng nhập đầy đủ thông tin');
+    } else {
+      dispatch(
+        add_infoBuyer({
+          nameBuyer: nameBuyer,
+          addressBuyer: addressBuyer,
+          phoneBuyer: phoneBuyer,
+        }),
+      );
+      dispatch(
+        add_History({
+          nameBuyer: nameBuyer,
+          addressBuyer: addressBuyer,
+          phoneBuyer: phoneBuyer,
+          boughtItems: cartItems,
+          totalPrice : totalPrice,
+        }),
+      );
+      Keyboard.dismiss();
+      Alert.alert(
+        'Thông báo',
+        `Đã thanh toán thành công, hàng sẽ sớm được vận chuyển đến địa chỉ: \n${addressBuyer}. \nCảm ơn, anh/chị ${nameBuyer} đã ủng hộ.`,
+      );
+      dispatch(delete_all_Cart())
+    }
+  };
 
   return (
     <View style={{flex: 1}}>
@@ -53,29 +86,44 @@ const CartScreen = props => {
           </Text>
         </View>
       ) : (
-        <View style={{flex: 1}}>
-          <ScrollView
-            style={{flex: 1, marginBottom: 150, backgroundColor: COLOR.white}}>
+        <View style={{flex: 1, backgroundColor: COLOR.secondary}}>
+          <ScrollView style={{flex: 1, marginBottom: 150}}>
             <View
               style={{
-                marginHorizontal: 10,
-                marginVertical: 10,
+                flex: 1,
               }}>
-              <Input
-                title="Người đặt"
-                placeholder="Vui lòng nhập họ tên người đặt"
-                icon={
-                  <FontAwesome5 name="user" color={COLOR.white} size={20} />
-                }
-              />
+              <View style={{marginHorizontal: 10, marginVertical: 10}}>
+                <Input
+                  value={nameBuyer}
+                  onChangeText={setNameBuyer}
+                  title="Người đặt"
+                  placeholder="Vui lòng nhập họ tên người đặt"
+                  icon={
+                    <FontAwesome5 name="user" color={COLOR.white} size={20} />
+                  }
+                />
 
-              <Input
-                title="Địa chỉ nhận hàng"
-                placeholder="Vui lòng nhập địa chỉ nhận hàng"
-                icon={
-                  <Ionicons name="location" color={COLOR.white} size={20} />
-                }
-              />
+                <Input
+                  value={addressBuyer}
+                  onChangeText={setAddressBuyer}
+                  title="Địa chỉ nhận hàng"
+                  placeholder="Vui lòng nhập địa chỉ nhận hàng"
+                  icon={
+                    <Ionicons name="location" color={COLOR.white} size={20} />
+                  }
+                />
+
+                <Input
+                  keyboardType="number-pad"
+                  value={phoneBuyer}
+                  onChangeText={setPhoneBuyer}
+                  title="Số điện thoại"
+                  placeholder="Vui lòng nhập số điện thoại"
+                  icon={
+                    <FontAwesome5 name="phone" color={COLOR.white} size={20} />
+                  }
+                />
+              </View>
             </View>
 
             {/* List item trong giỏ hàng */}
@@ -90,7 +138,7 @@ const CartScreen = props => {
                   dispatch(delete_all_Cart());
                 }}
               />
-              <FlatList
+              {/* <FlatList
                 data={cartItems}
                 renderItem={({item}) => {
                   return (
@@ -101,23 +149,23 @@ const CartScreen = props => {
                     />
                   );
                 }}
-              />
+              /> */}
+              <View style={{backgroundColor: COLOR.white}}>
+                {cartItems.map(item => {
+                  return (
+                    <CartItem
+                      key={item.productID}
+                      item={item}
+                      addQty={() => dispatch(addCart(item))}
+                      removeQty={() => dispatch(removeCart(item))}
+                    />
+                  );
+                })}
+              </View>
             </View>
           </ScrollView>
           {/* Thanh toán đơn hàng */}
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              backgroundColor: COLOR.white,
-              height: 150,
-              width: '100%',
-              padding: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderTopWidth: 1,
-              borderColor: COLOR.gray,
-            }}>
+          <View style={styles.paymentContainer}>
             <RowContent
               stylesProp={{textAlign: 'right'}}
               title="Tổng tiền"
@@ -135,16 +183,11 @@ const CartScreen = props => {
             />
 
             <TouchableOpacity
+              onPress={() => {
+                handleThanhToan();
+              }}
               activeOpacity={0.8}
-              style={{
-                backgroundColor: COLOR.primary,
-                width: '100%',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: 10,
-                borderRadius: 20,
-                marginVertical: 5,
-              }}>
+              style={styles.btnPayment}>
               <Text style={{color: COLOR.white, fontWeight: 'bold'}}>
                 THANH TOÁN ĐƠN HÀNG
               </Text>
@@ -164,5 +207,26 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: COLOR.gray,
     alignItems: 'center',
+  },
+  paymentContainer: {
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: COLOR.white,
+    height: 150,
+    width: '100%',
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderColor: COLOR.gray,
+  },
+  btnPayment: {
+    backgroundColor: COLOR.primary,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    borderRadius: 20,
+    marginVertical: 5,
   },
 });

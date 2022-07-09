@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
 import React from 'react';
 import {COLOR, FONT_SIZE} from '../constants';
-
+import {useSelector, useDispatch} from 'react-redux';
 const SupportScreen = () => {
   return (
     <View style={styles.container}>

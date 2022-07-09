@@ -1,24 +1,13 @@
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {COLOR, FONT_SIZE} from '../constants';
+import {FONT_SIZE} from '../constants';
 
-const Category = ({title, imageCategory,onPress}) => {
+const Category = ({title, imageCategory, onPress}) => {
   return (
-    <TouchableOpacity
-    onPress={onPress}
-      style={{
-        alignItems: 'center',
-        marginVertical: 10,
-      }}>
-      <Image style={{height: 50, width: 50}} source={imageCategory} />
-      <View style={{width: 80}}>
-        <Text
-          style={{
-            fontSize: FONT_SIZE.small,
-            textAlign: 'center',
-          }}>
-          {title}
-        </Text>
+    <TouchableOpacity onPress={onPress} style={styles.btnContainer}>
+      <Image style={styles.imageStyle} source={imageCategory} />
+      <View style={styles.txtContainer}>
+        <Text style={styles.txtStyle}>{title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -26,4 +15,20 @@ const Category = ({title, imageCategory,onPress}) => {
 
 export default Category;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  imageStyle: {
+    height: 50,
+    width: 50,
+  },
+  txtContainer: {
+    width: 80,
+  },
+  txtStyle: {
+    fontSize: FONT_SIZE.small,
+    textAlign: 'center',
+  },
+  btnContainer: {
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+});

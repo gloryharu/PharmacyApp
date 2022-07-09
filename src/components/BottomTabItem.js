@@ -22,7 +22,8 @@ const BottomTabIcon = ({
         </View>
         <Text style={styleTitle}>{title}</Text>
 
-        {title === 'Giỏ hàng' && countItem > 0  && (
+        {/* Hiển thị Badget cho giỏ hàng */}
+        {title === 'Giỏ hàng' && countItem > 0 && (
           <View
             style={{
               position: 'absolute',

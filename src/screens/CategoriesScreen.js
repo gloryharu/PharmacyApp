@@ -70,7 +70,7 @@ const CategoriesScreen = props => {
             return (
               <ProductContainer
                 onPress={() => {
-                  navigate('DetailsScreen',{name: item.category});
+                  navigate('DetailsScreen', {name: item.category});
                   dispatch(get_Product_ID(item.productID));
                 }}
                 item={item}
@@ -87,9 +87,15 @@ const CategoriesScreen = props => {
       {/* Popup Screen */}
       <GestureHandlerRootView>
         <Modal
+          backdropOpacity={0.5}
+          backdropColor={COLOR.blackOpacity}
+          animationInTiming={450}
+          animationOutTiming={450}
+          backdropTransitionOutTiming={450}
+          backdropTransitionInTiming={450}
           style={{margin: 0}}
-          animationIn={'fadeIn'}
-          animationOut={'fadeOut'}
+          animationIn={'slideInUp'}
+          animationOut={'slideOutDown'}
           isVisible={isVisible}
           onSwipeComplete={() => {
             setIsVisible(false);
