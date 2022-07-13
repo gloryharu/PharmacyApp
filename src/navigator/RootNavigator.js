@@ -11,6 +11,7 @@ import {
   PointScreen,
   SupportScreen,
   HistoryScreen,
+  ChatScreen,
 } from '../screens';
 import {COLOR, FONT_SIZE} from '../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -78,7 +79,7 @@ const RootNavigator = () => {
       />
 
       <Stack.Screen
-        options={{headerTitle: 'Tài khoản'}}
+        options={{headerTitle: 'Tài khoản của bạn'}}
         name="ProfileScreen"
         component={ProfileScreen}
       />
@@ -152,6 +153,14 @@ const RootNavigator = () => {
         })}
         name="HistoryScreen"
         component={HistoryScreen}
+      />
+
+      <Stack.Screen
+        options={() => ({
+          headerTitle: 'Hỗ trợ qua tin nhắn',
+        })}
+        name="ChatScreen"
+        component={ChatScreen}
       />
     </Stack.Navigator>
   );

@@ -8,6 +8,7 @@ import PopupScreen from './PopupScreen';
 import PointScreen from './PointScreen';
 import SupportScreen from './SupportScreen';
 import HistoryScreen from './HistoryScreen';
+import ChatScreen from './ChatScreen';
 
 export {
   HomeScreen,
@@ -20,4 +21,5 @@ export {
   PointScreen,
   SupportScreen,
   HistoryScreen,
+  ChatScreen,
 };

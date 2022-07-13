@@ -1,18 +1,30 @@
-import {StyleSheet, Text, View, Image, FlatList} from 'react-native';
+import {StyleSheet, View, Linking} from 'react-native';
 import React from 'react';
-import {COLOR, FONT_SIZE} from '../constants';
-import {useSelector, useDispatch} from 'react-redux';
-const SupportScreen = () => {
+import {COLOR} from '../constants';
+
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import ButtonSupport from '../components/ButtonSupport';
+
+const SupportScreen = props => {
+  const phoneNumber = '18006928';
+  const {navigation} = props;
+  const {navigate} = navigation;
   return (
     <View style={styles.container}>
-      <Text style={{fontWeight: 'bold', fontSize: FONT_SIZE.large}}>
-        THIẾU NHÂN LỰC
-      </Text>
-      <Image
-        style={{height: '50%', width: '100%'}}
-        resizeMode="contain"
-        source={{
-          uri: 'https://cdn.dribbble.com/users/1286822/screenshots/4318950/media/e9d6d00b4ab155085ce7d1d4a7bd6233.png?compress=1&resize=400x300',
+      <ButtonSupport
+        backgroundColor={COLOR.orange}
+        title="Nhắn tin"
+        icon={<FontAwesome5 name="comments" color={COLOR.white} size={25} />}
+        onPress={() => {
+          navigate('ChatScreen');
+        }}
+      />
+      <ButtonSupport
+        backgroundColor={COLOR.blue}
+        title="Gọi dược sĩ"
+        icon={<FontAwesome5 name="phone" color={COLOR.white} size={25} />}
+        onPress={() => {
+          Linking.openURL(`tel:${phoneNumber}`);
         }}
       />
     </View>
@@ -24,8 +36,6 @@ export default SupportScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: COLOR.white,
   },
 });
