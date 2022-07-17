@@ -9,14 +9,22 @@ const Input = ({
   value,
   onChangeText,
   keyboardType,
+  secureTextEntry,
+  setBackgroundStyle,
 }) => {
   return (
     <>
       <Text>{title}</Text>
       <View style={styles.inputContainer}>
-        <View style={styles.iconContainer}>{icon}</View>
+        <View
+          style={
+            setBackgroundStyle ? styles.iconContainer : styles.iconContainerNoBg
+          }>
+          {icon}
+        </View>
         <View style={{flex: 1, marginLeft: 5}}>
           <TextInput
+            secureTextEntry={secureTextEntry}
             value={value}
             onChangeText={text => onChangeText(text)}
             placeholder={placeholder}
@@ -43,7 +51,13 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
     backgroundColor: COLOR.orange,
-    borderRadius: 10,
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  iconContainerNoBg: {
+    height: 30,
+    width: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },

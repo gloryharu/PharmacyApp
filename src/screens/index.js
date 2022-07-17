@@ -9,6 +9,8 @@ import PointScreen from './PointScreen';
 import SupportScreen from './SupportScreen';
 import HistoryScreen from './HistoryScreen';
 import ChatScreen from './ChatScreen';
+import LoginScreen from './LoginScreen'
+import RegisterScreen from './RegisterScreen'
 
 export {
   HomeScreen,
@@ -22,4 +24,6 @@ export {
   SupportScreen,
   HistoryScreen,
   ChatScreen,
+  LoginScreen,
+  RegisterScreen
 };

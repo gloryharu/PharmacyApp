@@ -5,15 +5,35 @@ import {COLOR} from '../constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Foundation from 'react-native-vector-icons/Foundation';
+import {useDispatch, useSelector} from 'react-redux';
+import {logout} from '../redux_toolkit/slices/userSlice';
+import {signOut} from 'firebase/auth';
+import {auth} from '../firebase';
 
 const ProfileScreen = props => {
   const {navigation} = props;
-  const {navigate} = navigation;
+  const {navigate, replace} = navigation;
+  const dispatch = useDispatch();
+  const userInfo = useSelector(state => state.user.userInfo);
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log('Thoát thành công');
+        // console.log(userInfo?.accessToken);
+        dispatch(logout());
+      })
+      .catch(error => {
+        console.log(error.code);
+      });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Text>Avatar</Text>
       </View>
+      <Text>Email: {auth.currentUser?.email}</Text>
       <RowContentProfile
         icon={<Ionicons name="ios-person" size={23} color="gray" />}
         title="Thông tin cá nhân"
@@ -38,6 +58,7 @@ const ProfileScreen = props => {
       <RowContentProfile
         icon={<MaterialIcons name="logout" size={23} color="gray" />}
         title="Đăng xuất"
+        onPress={handleLogout}
       />
     </View>
   );

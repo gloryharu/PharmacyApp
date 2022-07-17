@@ -58,7 +58,7 @@ const CartScreen = props => {
           addressBuyer: addressBuyer,
           phoneBuyer: phoneBuyer,
           boughtItems: cartItems,
-          totalPrice : totalPrice,
+          totalPrice: totalPrice,
         }),
       );
       Keyboard.dismiss();
@@ -66,7 +66,7 @@ const CartScreen = props => {
         'Thông báo',
         `Đã thanh toán thành công, hàng sẽ sớm được vận chuyển đến địa chỉ: \n${addressBuyer}. \nCảm ơn, anh/chị ${nameBuyer} đã ủng hộ.`,
       );
-      dispatch(delete_all_Cart())
+      dispatch(delete_all_Cart());
     }
   };
 
@@ -101,6 +101,7 @@ const CartScreen = props => {
                   icon={
                     <FontAwesome5 name="user" color={COLOR.white} size={20} />
                   }
+                  setBackgroundStyle={true}
                 />
 
                 <Input
@@ -111,6 +112,7 @@ const CartScreen = props => {
                   icon={
                     <Ionicons name="location" color={COLOR.white} size={20} />
                   }
+                  setBackgroundStyle={true}
                 />
 
                 <Input
@@ -122,6 +124,7 @@ const CartScreen = props => {
                   icon={
                     <FontAwesome5 name="phone" color={COLOR.white} size={20} />
                   }
+                  setBackgroundStyle={true}
                 />
               </View>
             </View>
